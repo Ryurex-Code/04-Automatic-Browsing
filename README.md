@@ -64,12 +64,7 @@ This project relies on the following Python libraries, which will be automatical
 Follow these steps to set up and run the Bing Auto Search Tool:
 
 1.  **Clone the Repository:**
-    First, clone this repository to your local machine using Git:
-
-    ```bash
-    git clone [tps://github.com/Ryurex-Code/Bing-Auto-Search-Tool-V1.0.git](htps://github.com/Ryurex-Code/Bing-Auto-Search-Tool-V1.0.git)
-    cd bing-auto-search-tool
-    ```
+    First, clone this repository to your local machine using Git, or just download this repository:
 
 2.  **Install Microsoft Edge WebDriver (Crucial Step):**
     This is a critical step for Selenium to work with your Edge browser. Please follow the "Manual Installation (Recommended)" steps detailed in the **Requirements** section above to ensure `msedgedriver.exe` is correctly placed and accessible.
