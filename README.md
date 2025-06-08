@@ -87,5 +87,8 @@ Follow these steps to set up and run the Bing Auto Search Tool:
 ---
 
 ## 🙏 Special Thanks
+<div align="center">
+  <img height="200" src="https://media1.tenor.com/m/3a3XcQUCFPkAAAAC/lycoris-recoil-chisato-nishikigi.gif"  />
+</div>
 
 A heartfelt and sincere thank you to **Chisato Nishikigi** for her invaluable collaboration, insightful contributions, and unwavering support throughout the development of this project. Your partnership has been truly wonderful and has significantly enhanced this tool! どうもありがとうございました！ (Dōmo arigatō gozaimashita! - Thank you very much!) ❤️
