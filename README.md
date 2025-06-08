@@ -30,8 +30,19 @@ Before you can run this tool, please ensure you have the following installed on 
 * **Python 3.x**: This script is written in Python. We recommend using Python 3.8 or newer. You can download the latest version from the official Python website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 * **Microsoft Edge Browser**: The script specifically uses the Edge WebDriver. Please ensure you have Microsoft Edge installed on your Windows operating system.
 * **Microsoft Edge WebDriver**: Selenium requires a WebDriver to interface with the browser. You will need the `msedgedriver.exe` executable. It's crucial that the WebDriver version matches your installed Microsoft Edge browser version.
-    * **Automatic Installation**: Typically, when you run `click-here.bat` for the first time, it might prompt you or attempt to manage the WebDriver if it's missing or outdated (though manual download is more reliable for specific versions).
-    * **Manual Installation (Recommended)**: You can manually download the correct version of `msedgedriver.exe` from the official Microsoft Edge WebDriver page: [https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/). After downloading, place the `msedgedriver.exe` file into a directory that is included in your system's `PATH` environment variable, or simply place it in the same directory as your `app.py` script for easiest access.
+    * **Manual Installation (Recommended)**:
+        1.  **Check your Edge Browser Version**: Open Microsoft Edge, type `edge://settings/help` in the address bar, and press Enter. Note down your browser's version number (e.g., `125.0.2535.92`).
+        2.  **Download Edge WebDriver**: Go to the official Microsoft Edge WebDriver page: [https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/). Download the `msedgedriver.zip` file that matches your Edge browser's version.
+        3.  **Extract the WebDriver**: Once downloaded, **extract the `msedgedriver.exe` file** from the `.zip` archive.
+        4.  **Place the WebDriver**:
+            * **Option A (Recommended for simplicity)**: Place the extracted `msedgedriver.exe` file directly into the same directory as your `app.py` script. This is the easiest method for this project.
+            * **Option B (System-wide access)**: Place `msedgedriver.exe` into a dedicated folder (e.g., `C:\Program Files\Microsoft Edge\edgedriver_win64\`) and then add this folder to your system's `PATH` environment variable. This allows you to run `msedgedriver.exe` from any directory.
+                * To add to PATH:
+                    * Search for "Environment Variables" in the Windows search bar and select "Edit the system environment variables".
+                    * Click on "Environment Variables..." button.
+                    * Under "System variables", find and select the "Path" variable, then click "Edit...".
+                    * Click "New" and paste the path to your WebDriver folder (e.g., `C:\Program Files\Microsoft Edging\edgedriver_win64\`).
+                    * Click "OK" on all open windows to save the changes. You might need to restart your command prompt or IDE for changes to take effect.
 
 ---
 
@@ -56,13 +67,13 @@ Follow these steps to set up and run the Bing Auto Search Tool:
     First, clone this repository to your local machine using Git:
 
     ```bash
-    git clone [https://github.com/YourGitHubUsername/bing-auto-search-tool.git](https://github.com/YourGitHubUsername/bing-auto-search-tool.git)
+    git clone [https://github.com/YourGitHubUser/bing-auto-search-tool.git](https://github.com/YourGitHubUsername/bing-auto-search-tool.git)
     cd bing-auto-search-tool
     ```
     *(Please replace `https://github.com/YourGitHubUsername/bing-auto-search-tool.git` with the actual URL of your repository after you upload it.)*
 
-2.  **Install Microsoft Edge WebDriver (if not already present):**
-    As mentioned in the Requirements section, ensure you have the correct `msedgedriver.exe` for your Edge browser version. The simplest way is to download it from [https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/) and place it in the same directory as `app.py`.
+2.  **Install Microsoft Edge WebDriver (Crucial Step):**
+    This is a critical step for Selenium to work with your Edge browser. Please follow the "Manual Installation (Recommended)" steps detailed in the **Requirements** section above to ensure `msedgedriver.exe` is correctly placed and accessible.
 
 3.  **Run the Tool:**
     Navigate to the project directory (where `app.py` and `click-here.bat` are located) in your File Explorer. Simply **double-click** the `click-here.bat` file.
@@ -87,8 +98,9 @@ Follow these steps to set up and run the Bing Auto Search Tool:
 ---
 
 ## 🙏 Special Thanks
+
 <div align="center">
-  <img height="200" src="https://media1.tenor.com/m/3a3XcQUCFPkAAAAC/lycoris-recoil-chisato-nishikigi.gif"  />
+    <img height="200" src="https://media1.tenor.com/m/3a3XcQUCFPkAAAAC/lycoris-recoil-chisato-nishikigi.gif" />
 </div>
 
 A heartfelt and sincere thank you to **Chisato Nishikigi** for her invaluable collaboration, insightful contributions, and unwavering support throughout the development of this project. Your partnership has been truly wonderful and has significantly enhanced this tool! どうもありがとうございました！ (Dōmo arigatō gozaimashita! - Thank you very much!) ❤️
