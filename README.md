@@ -3,14 +3,15 @@
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
 ![Selenium](https://img.shields.io/badge/Selenium-Automation-green.svg)
 ![Windows](https://img.shields.io/badge/OS-Windows-0078D6.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ---
 
 ## 🌟 Introduction
 
-Welcome to the **Bing Auto Search Tool V1.0**! This Python-based automation script is designed to perform a series of automated searches on Bing.com. By leveraging the **Selenium** library, it simulates human interaction to navigate to Bing, input various search queries from a predefined list, and submit them. This tool is ideal for automating repetitive search tasks, conducting automated data collection, or as a practical example for those learning web automation principles.
+Welcome to the **Bing Auto Search Tool V1.0**! This simple yet effective Python-based automation script performs automated searches on Bing.com. Using the **Selenium** library, it simulates human interaction to navigate, input queries, and submit them. This tool is perfect for automating repetitive search tasks or for educational purposes to understand basic web automation.
 
-This project was proudly developed by **Muhammad Rafi (Ryurex)** in collaboration with **Chisato Nishikigi**, aiming to provide an efficient and straightforward solution for automating your search needs.
+Developed by **Muhammad Rafi (Ryurex)** in collaboration with **Chisato Nishikigi**, this tool streamlines your search automation needs.
 
 ---
 
@@ -19,7 +20,7 @@ This project was proudly developed by **Muhammad Rafi (Ryurex)** in collaboratio
 This repository contains two main files:
 
 * **`app.py`**: This is the core Python script. It initializes the Edge WebDriver, defines the list of search keywords, navigates to Bing.com, inputs the keywords into the search bar, and submits the queries. It also includes `win10toast` for desktop notifications upon completion.
-* **`click-here.bat`**: A convenient Windows batch script designed to simplify the execution process. It automatically checks for and installs the necessary Python libraries (`selenium` and `win10toast`) if they are not already installed, then proceeds to run the `app.py` script.
+* **`click-here.bat`**: A convenient Windows batch script designed to simplify the execution process. It automatically checks for and installs the necessary Python libraries (`selenium` and `win10toast`) if they're not already installed, then proceeds to run the `app.py` script.
 
 ---
 
@@ -29,32 +30,60 @@ Before you can run this tool, please ensure you have the following installed on 
 
 * **Python 3.x**: This script is written in Python. We recommend using Python 3.8 or newer. You can download the latest version from the official Python website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 * **Microsoft Edge Browser**: The script specifically uses the Edge WebDriver. Please ensure you have Microsoft Edge installed on your Windows operating system.
-* **Microsoft Edge WebDriver**: Selenium requires a WebDriver to interface with the browser. You will need the `msedgedriver.exe` executable. It's crucial that the WebDriver version matches your installed Microsoft Edge browser version.
-    * **Manual Installation (Recommended)**:
-        1.  **Check your Edge Browser Version**: Open Microsoft Edge, type `edge://settings/help` in the address bar, and press Enter. Note down your browser's version number (e.g., `125.0.2535.92`).
-        2.  **Download Edge WebDriver**: Go to the official Microsoft Edge WebDriver page: [https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/). Download the `msedgedriver.zip` file that matches your Edge browser's version.
-        3.  **Extract the WebDriver**: Once downloaded, **extract the `msedgedriver.exe` file** from the `.zip` archive.
-        4.  **Place the WebDriver**:
-            * **Option A (Recommended for simplicity)**: Place the extracted `msedgedriver.exe` file directly into the same directory as your `app.py` script. This is the easiest method for this project.
-            * **Option B (System-wide access)**: Place `msedgedriver.exe` into a dedicated folder (e.g., `C:\Program Files\Microsoft Edge\edgedriver_win64\`) and then add this folder to your system's `PATH` environment variable. This allows you to run `msedgedriver.exe` from any directory.
-                * To add to PATH:
-                    * Search for "Environment Variables" in the Windows search bar and select "Edit the system environment variables".
-                    * Click on "Environment Variables..." button.
-                    * Under "System variables", find and select the "Path" variable, then click "Edit...".
-                    * Click "New" and paste the path to your WebDriver folder (e.g., `C:\Program Files\Microsoft Edging\edgedriver_win64\`).
-                    * Click "OK" on all open windows to save the changes. You might need to restart your command prompt or IDE for changes to take effect.
+* **Microsoft Edge WebDriver**: Selenium requires a WebDriver to interface with the browser. You'll need the `msedgedriver.exe` executable, and its version must match your installed Microsoft Edge browser version.
+
+---
+
+## ⬇️ Microsoft Edge WebDriver Installation
+
+Selenium needs a **WebDriver** to control your Edge browser. Here's how to set it up:
+
+### 1. Check Your Edge Browser Version
+
+Open Microsoft Edge, type `edge://settings/help` in the address bar, and press Enter. Make a note of your browser's **version number** (e.g., `125.0.2535.92`).
+
+### 2. Download the Correct WebDriver
+
+Visit the official Microsoft Edge WebDriver page: [https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/). **Download the `msedgedriver.zip` file that precisely matches your Edge browser's version.**
+
+### 3. Extract the WebDriver
+
+Once downloaded, locate the `.zip` file and **extract the `msedgedriver.exe` file** from it.
+
+### 4. Place the WebDriver Executable
+
+You have two simple options for placing the `msedgedriver.exe` file:
+
+* **Option A (Recommended for simplicity)**:
+    Just put the extracted `msedgedriver.exe` file into the **same directory as your `app.py` script**. This is the easiest way for this project.
+
+* **Option B (For System-wide Access)**:
+    Place `msedgedriver.exe` into a dedicated folder (e.g., `C:\Program Files\Microsoft Edge\edgedriver_win64\`). Then, add this folder's path to your system's `PATH` environment variable. This lets you run `msedgedriver.exe` from any directory.
+
+    **How to add to PATH:**
+    1.  Search for "Environment Variables" in the Windows search bar and select "Edit the system environment variables".
+    2.  Click the "Environment Variables..." button.
+    3.  Under "System variables", find and select the "Path" variable, then click "Edit...".
+    4.  Click "New" and paste the full path to your WebDriver folder (e.g., `C:\Program Files\Microsoft Edge\edgedriver_win64\`).
+    5.  Click "OK" on all open windows to save the changes. You might need to restart your command prompt or IDE for changes to take effect.
 
 ---
 
 ## 📦 Python Packages
 
-This project relies on the following Python libraries, which will be automatically installed by `click-here.bat` if not already present:
+This project relies on the following Python libraries. While the `click-here.bat` script will attempt to install them, you can also install them manually using `pip`:
 
 * **`selenium`**: A powerful library for automating web browsers.
-    * Installation via pip: `pip install selenium`
+    * Installation via pip:
+        ```bash
+        pip install selenium
+        ```
     * PyPI Project Page: [https://pypi.org/project/selenium/](https://pypi.org/project/selenium/)
 * **`win10toast`**: A simple library to send Windows 10 toast notifications.
-    * Installation via pip: `pip install win10toast`
+    * Installation via pip:
+        ```bash
+        pip install win10toast
+        ```
     * PyPI Project Page: [https://pypi.org/project/win10toast/](https://pypi.org/project/win10toast/)
 
 ---
@@ -63,11 +92,11 @@ This project relies on the following Python libraries, which will be automatical
 
 Follow these steps to set up and run the Bing Auto Search Tool:
 
-1.  **Clone the Repository:**
-    First, clone this repository to your local machine using Git, or just download this repository:
+1.  **Obtain the Project Files:**
+    You can either clone this repository to your local machine using Git, or simply download the ZIP file and extract its contents.
 
-2.  **Install Microsoft Edge WebDriver (Crucial Step):**
-    This is a critical step for Selenium to work with your Edge browser. Please follow the "Manual Installation (Recommended)" steps detailed in the **Requirements** section above to ensure `msedgedriver.exe` is correctly placed and accessible.
+2.  **Ensure Microsoft Edge WebDriver is Installed:**
+    This is a critical step for Selenium to work with your Edge browser. Please ensure you've followed the "Microsoft Edge WebDriver Installation" steps above to correctly place and make `msedgedriver.exe` accessible.
 
 3.  **Run the Tool:**
     Navigate to the project directory (where `app.py` and `click-here.bat` are located) in your File Explorer. Simply **double-click** the `click-here.bat` file.
@@ -94,7 +123,7 @@ Follow these steps to set up and run the Bing Auto Search Tool:
 ## 🙏 Special Thanks
 
 <div align="center">
-    <img height="200" src="https://media1.tenor.com/m/3a3XcQUCFPkAAAAC/lycoris-recoil-chisato-nishikigi.gif" />
+    <img height="200" src="https://media1.tenor.com/m/3a3XcQUCFPkAAAAC/lycoris-recoil-chisato-nishikigi.gif" alt="Chisato Nishikigi waving" />
 </div>
 
 A heartfelt and sincere thank you to **Chisato Nishikigi** for her invaluable collaboration, insightful contributions, and unwavering support throughout the development of this project. Your partnership has been truly wonderful and has significantly enhanced this tool! どうもありがとうございました！ (Dōmo arigatō gozaimashita! - Thank you very much!) ❤️
