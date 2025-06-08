@@ -101,13 +101,6 @@ Follow these steps to set up and run the Bing Auto Search Tool:
 3.  **Run the Tool:**
     Navigate to the project directory (where `app.py` and `click-here.bat` are located) in your File Explorer. Simply **double-click** the `click-here.bat` file.
 
-    The batch script will then:
-    * Check for and install the required Python libraries (`selenium` and `win10toast`).
-    * Launch the `app.py` script.
-    * Open a command prompt window to display the search progress.
-    * Perform automated searches using Microsoft Edge in **headless mode** (the browser window will run in the background and not be visibly open).
-    * Send a Windows toast notification to your desktop once all searches are completed.
-
 ---
 
 ## 📌 Notes
