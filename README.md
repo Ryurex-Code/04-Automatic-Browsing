@@ -1,36 +1,50 @@
-# Bing Auto Search Tool V1.0
+# Bing Auto Search Tool V2.0
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
 ![Selenium](https://img.shields.io/badge/Selenium-Automation-green.svg)
+![tqdm](https://img.shields.io/badge/tqdm-progress--bar-ff69b4)
+![win10toast](https://img.shields.io/badge/win10toast-notifications-ffa500)
 ![Windows](https://img.shields.io/badge/OS-Windows-0078D6.svg)
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ---
 
 ## 🌟 Introduction
 
-Welcome to the **Bing Auto Search Tool V1.0**! This simple yet effective Python-based automation script performs automated searches on Bing.com. Using the **Selenium** library, it simulates human interaction to navigate, input queries, and submit them. This tool is perfect for automating repetitive search tasks or for educational purposes to understand basic web automation.
+Welcome to the **Bing Auto Search Tool V2.0**!
+A Python-based automation tool that simulates human-like searches on **Bing.com** with randomized keywords and mobile/desktop profile switching using Selenium WebDriver.
 
-Developed by **Muhammad Rafi (Ryurex)** in collaboration with **Chisato Nishikigi**, this tool streamlines your search automation needs.
+> Developed by **Muhammad Rafi (Ryurex)** in collaboration with **Chisato Nishikigi**
 
 ---
 
-## 📂 Project Structure
+## 🚀 Features
 
-This repository contains two main files:
-
-* **`app.py`**: This is the core Python script. It initializes the Edge WebDriver, defines the list of search keywords, navigates to Bing.com, inputs the keywords into the search bar, and submits the queries. It also includes `win10toast` for desktop notifications upon completion.
-* **`click-here.bat`**: A convenient Windows batch script designed to simplify the execution process. It automatically checks for and installs the necessary Python libraries (`selenium` and `win10toast`) if they're not already installed, then proceeds to run the `app.py` script.
+* ✅ **Headless Mode by Default** (can be toggled at runtime)
+* 📱 **Mobile Emulation (iPhone X)**
+* 🔄 **Desktop & Mobile switching per Edge profile**
+* 🔤 **Smart Random Keyword Generator with common words + suffix**
+* ⏱️ **Progress Bar + Time Estimation**
+* 💬 **Optional Detailed Info in Progress Display**
+* 🔔 **Windows Toast Notifications per profile**
 
 ---
 
 ## 🛠️ Requirements
 
-Before you can run this tool, please ensure you have the following installed on your system:
+- **Python 3.x**  
+  Download: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
-* **Python 3.x**: This script is written in Python. We recommend using Python 3.8 or newer. You can download the latest version from the official Python website: [https://www.python.org/downloads/](https://www.python.org/downloads/)
-* **Microsoft Edge Browser**: The script specifically uses the Edge WebDriver. Please ensure you have Microsoft Edge installed on your Windows operating system.
-* **Microsoft Edge WebDriver**: Selenium requires a WebDriver to interface with the browser. You'll need the `msedgedriver.exe` executable, and its version must match your installed Microsoft Edge browser version.
+- **Microsoft Edge Browser**  
+  Download: [https://www.microsoft.com/edge](https://www.microsoft.com/edge)
+
+- **Microsoft Edge WebDriver** (must match your Edge version)  
+  Download: [https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+
+- **Python Libraries** (installed automatically via `.bat` or manually via pip):
+```bash
+pip install selenium win10toast tqdm
+```
 
 ---
 
@@ -40,76 +54,94 @@ Selenium needs a **WebDriver** to control your Edge browser. Here's how to set i
 
 ### 1. Check Your Edge Browser Version
 
-Open Microsoft Edge, type `edge://settings/help` in the address bar, and press Enter. Make a note of your browser's **version number** (e.g., `125.0.2535.92`).
+Open Microsoft Edge and go to `edge://settings/help`. Note the version number (e.g., `125.0.2535.92`).
 
 ### 2. Download the Correct WebDriver
 
-Visit the official Microsoft Edge WebDriver page: [https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/). **Download the `msedgedriver.zip` file that precisely matches your Edge browser's version.**
+Visit the official page: [Microsoft Edge WebDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
+
+Download the `msedgedriver.zip` that matches your Edge version.
 
 ### 3. Extract the WebDriver
 
-Once downloaded, locate the `.zip` file and **extract the `msedgedriver.exe` file** from it.
+Extract the `msedgedriver.exe` from the ZIP file.
 
 ### 4. Place the WebDriver Executable
 
-You have two simple options for placing the `msedgedriver.exe` file:
+* **Option A (Recommended):**
+  Put `msedgedriver.exe` in the same folder as `app.py`
 
-* **Option A (Recommended for simplicity)**:
-    Just put the extracted `msedgedriver.exe` file into the **same directory as your `app.py` script**. This is the easiest way for this project.
+* **Option B (Advanced):**
+  Add the WebDriver directory to your system PATH:
 
-* **Option B (For System-wide Access)**:
-    Place `msedgedriver.exe` into a dedicated folder (e.g., `C:\Program Files\Microsoft Edge\edgedriver_win64\`). Then, add this folder's path to your system's `PATH` environment variable. This lets you run `msedgedriver.exe` from any directory.
-
-    **How to add to PATH:**
-    1.  Search for "Environment Variables" in the Windows search bar and select "Edit the system environment variables".
-    2.  Click the "Environment Variables..." button.
-    3.  Under "System variables", find and select the "Path" variable, then click "Edit...".
-    4.  Click "New" and paste the full path to your WebDriver folder (e.g., `C:\Program Files\Microsoft Edge\edgedriver_win64\`).
-    5.  Click "OK" on all open windows to save the changes. You might need to restart your command prompt or IDE for changes to take effect.
-
----
-
-## 📦 Python Packages
-
-This project relies on the following Python libraries. While the `click-here.bat` script will attempt to install them, you can also install them manually using `pip`:
-
-* **`selenium`**: A powerful library for automating web browsers.
-    * Installation via pip:
-        ```bash
-        pip install selenium
-        ```
-    * PyPI Project Page: [https://pypi.org/project/selenium/](https://pypi.org/project/selenium/)
-* **`win10toast`**: A simple library to send Windows 10 toast notifications.
-    * Installation via pip:
-        ```bash
-        pip install win10toast
-        ```
-    * PyPI Project Page: [https://pypi.org/project/win10toast/](https://pypi.org/project/win10toast/)
+```text
+1. Search "Environment Variables"
+2. Edit system environment variables → Environment Variables…
+3. Under "System variables", find "Path" → Edit → New
+4. Paste your WebDriver folder path (e.g., C:\WebDrivers\)
+5. Click OK, restart terminal if needed
+```
 
 ---
 
-## 🚀 How to Use
+## ⚙️ Initial Setup Before First Run
 
-Follow these steps to set up and run the Bing Auto Search Tool:
+❗ **Important:** Before you run the script for the first time, make sure to:
+⚠️ Feel free to modificated the script based on your purpose. 
 
-1.  **Obtain the Project Files:**
-    You can either clone this repository to your local machine using Git, or simply download the ZIP file and extract its contents.
+1. **Create Edge Profiles (Required Before First Run)**  
+   You must first open Microsoft Edge and manually create profiles (e.g., Profile 1, Profile 2, etc.) and sign in to your Microsoft account on each. These will be the profiles used by Selenium.
 
-2.  **Ensure Microsoft Edge WebDriver is Installed:**
-    This is a critical step for Selenium to work with your Edge browser. Please ensure you've followed the "Microsoft Edge WebDriver Installation" steps above to correctly place and make `msedgedriver.exe` accessible.
+2. **Match Profile Count in Script**  
+   Make sure the number of profiles created matches the `total_profiles` value in the script:
+   ```python
+   total_profiles = 7
+   ```
+   If you create fewer profiles, reduce this value to prevent errors.
 
-3.  **Run the Tool:**
-    Navigate to the project directory (where `app.py` and `click-here.bat` are located) in your File Explorer. Simply **double-click** the `click-here.bat` file.
+3. **Set Your Profile Folder Path**  
+   Update this line <YOUR_USERNAME> to match your actual Edge user data folder:
+   ```python
+   options.add_argument(r"--user-data-dir=C:\\Users\\<YOUR_USERNAME>\\AppData\\Local\\Microsoft\\Edge\\User Data\\Ryurex Project")
+   ```
+
+5. **Disable Headless Mode on First Run**  
+   On your very first execution, answer:
+   ```
+   Do you want to inactivate headless mode (Y/N): Y
+   ```
+   This allows you to see and configure each Edge profile manually (e.g., sign in, verify account access).  
+   After setup is complete, you may run in headless mode safely.
 
 ---
 
-## 📌 Notes
+## ▶️ How to Run
 
-* The script is configured to perform **30 searches**. You can modify the `total_searches` variable in `app.py` if you wish to change this number.
-* The `time.sleep(10)` function in `app.py` introduces a 10-second delay between each search to allow the page to fully load and to avoid potential issues with rapid requests. You can adjust this value if needed, but be mindful of rate limits or bot detection by Bing.
-* The browser runs in **headless mode** (`--headless=new`). This means the browser window will not be visible, running purely in the background. This is efficient for automation tasks.
-* This tool is intended for educational, demonstration, and automation testing purposes.
-* Please avoid abusing search engines or using this for unauthorized scraping.
+You can launch the script by running:
+
+```bash
+python search-tool.py
+```
+
+Or just double-click `click-here.bat`
+
+You will be asked:
+
+- Whether to disable headless mode (browser visibility)
+- Whether to show detailed info (keywords, delay)
+
+The tool will loop through each profile and perform:
+
+* 30 desktop + 20 mobile Bing searches (with iPhone X emulation for mobile)
+
+---
+
+## ⚠️ Disclaimer
+
+This tool is provided **for educational and personal productivity purposes only.**  
+Any use of this script to exploit, abuse, or violate the terms of service of Microsoft Bing or any other third-party platform is **strictly the user's responsibility**.  
+
+> The developer assumes no liability for misuse, bans, account suspensions, or other consequences resulting from the use of this tool.
 
 ---
 
