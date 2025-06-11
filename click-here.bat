@@ -17,9 +17,16 @@ if errorlevel 1 (
     pip install win10toast
 )
 
+:: Check and install TQDM
+python -c "import tqdm" 2>NUL
+if errorlevel 1 (
+    echo Installing tqdm...
+    pip install tqdm
+)
+
 :: Run the script
 echo Launching Bing Auto Search Tool...
-python app.py
+python search-tool.py
 
 :: Quietly exit the script
 exit
