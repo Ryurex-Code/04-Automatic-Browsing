@@ -1,0 +1,86 @@
+===========================
+ How to Run for First Time
+===========================
+
+📌 This file contains step-by-step instructions to help you set up the Bing Auto Search Tool correctly BEFORE running it the first time.
+
+----------------------------
+⚙️  1. Create Edge Profiles
+----------------------------
+
+You must open Microsoft Edge and manually create multiple profiles.
+
+📍 To create a profile:
+1. Open Microsoft Edge.
+2. Click on your profile icon (top right).
+3. Click "Add Profile" → "Add".
+4. Sign in with a Microsoft account (important for Bing rewards or syncing).
+
+📝 Recommended: Create them as "Profile 1", "Profile 2", etc.
+
+These profiles will be used and controlled by Selenium WebDriver.
+
+----------------------------------------
+🧑‍💻 2. Match Profile Count in the Script
+----------------------------------------
+
+Open `search-tool.py` or `app.py`, and find this line:
+
+    total_profiles = 7
+
+Change the value based on how many profiles you've created in Edge.
+
+Example:
+- If you only created 5 profiles, change it to:
+
+      total_profiles = 5
+
+----------------------------------------------------
+📁 3. Set Your Edge Profile Folder (--user-data-dir)
+----------------------------------------------------
+
+Locate your Edge user data folder on Windows. Here's how:
+
+🔍 How to find YOUR USERNAME:
+1. Press `Windows + R`
+2. Type: `cmd` → press Enter
+3. In the terminal, type: `echo %USERNAME%`
+
+or you can check it by Microsoft Edge with just search "edge://version/" on your search bar.
+
+Then use this in the following path:
+
+    C:\Users\<YOUR_USERNAME>\AppData\Local\Microsoft\Edge\User Data\Ryurex Project
+
+📌 In your script (`search-tool.py`), update this line:
+
+    options.add_argument(r"--user-data-dir=C:\Users\<YOUR_USERNAME>\AppData\Local\Microsoft\Edge\User Data\Ryurex Project")
+
+❗ Make sure the directory and profile folders EXIST before running the tool.
+
+------------------------------------------------
+🧪 4. Disable Headless Mode on First-Time Setup
+------------------------------------------------
+
+When you run the script for the first time, make sure to disable headless mode so you can:
+- Manually sign into each Microsoft Edge profile in Edge Web Driver
+- Verify access to Bing and confirm session is saved
+
+📍 The script will ask:
+    Do you want to inactivate headless mode (Y/N):
+
+Type: Y
+
+✅ Once all profiles are configured correctly and sessions saved, you may run in headless mode next time (just press N or Enter).
+
+-------------------
+✅ You're all set!
+-------------------
+
+Once setup is complete, you can run:
+
+    python search-tool.py
+
+Or double-click `click-here.bat`
+
+Enjoy your automated Bing searching experience!
