@@ -7,6 +7,10 @@
 ![Windows](https://img.shields.io/badge/OS-Windows-0078D6.svg)
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
+<p align="center">
+  <img src="https://i.ibb.co/xthFvWf5/Auto-Search-Tool.png" height="250">
+</p>
+
 ---
 
 ## 🌟 Introduction
