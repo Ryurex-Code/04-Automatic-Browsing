@@ -76,7 +76,7 @@ def run_search(profile_name, is_mobile=False, total_search=30):
     options.add_argument("--disable-gpu") # Disable GPU acceleration
     options.add_argument("--log-level=3") # Set log level to suppress logs
     # >>>>>>>>>>>>>>>>>> Set user-data-dir based on the profile name <<<<<<<<<<<<<<<<<<<<<<
-    options.add_argument(r"--user-data-dir=C:\Users\mrafi\AppData\Local\Microsoft\Edge\User Data\Ryurex Project") # Set user data directory
+    options.add_argument(r"--user-data-dir=C:\Users\<YOUR USERNAME>\AppData\Local\Microsoft\Edge\User Data\Ryurex Project") # Set user data directory
     options.add_argument(f"--profile-directory={profile_name}") # Set profile directory
 
     if headless: # If headless mode is enabled
@@ -128,7 +128,7 @@ def run_search(profile_name, is_mobile=False, total_search=30):
 
 # Master Runner
 if __name__ == "__main__": 
-    total_profiles = 7 # >>>>>>>>>>>>>>>>>(Change this to the number of profiles you want to search)<<<<<<<<<<<<<<<<<<<<<<<<<<
+    total_profiles = 11 # >>>>>>>>>>>>>>>>>(Change this to the number of profiles you want to search)<<<<<<<<<<<<<<<<<<<<<<<<<<
     total_tasks = total_profiles * (30 + 20) # Total tasks
     start_time = time.time() # Start time for the entire script
 
