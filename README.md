@@ -1,4 +1,4 @@
-# Bing Auto Search Tool V2.0
+# Bing Auto Search Tool V2.5
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
 ![Selenium](https://img.shields.io/badge/Selenium-Automation-green.svg)
@@ -15,7 +15,7 @@
 
 ## 🌟 Introduction
 
-Welcome to the **Bing Auto Search Tool V2.0**!
+Welcome to the **Bing Auto Search Tool V2.5**!
 A Python-based automation tool that simulates human-like searches on **Bing.com** with randomized keywords and mobile/desktop profile switching using Selenium WebDriver.
 
 > Developed by **Muhammad Rafi (Ryurex)** in collaboration with **Chisato Nishikigi**
@@ -31,6 +31,8 @@ A Python-based automation tool that simulates human-like searches on **Bing.com*
 * ⏱️ **Progress Bar + Time Estimation**
 * 💬 **Optional Detailed Info in Progress Display**
 * 🔔 **Windows Toast Notifications per profile**
+* ⚙️ **Environment Variables Configuration**
+* ⏭️ **Skip Session Feature (Press 'S')**
 
 ---
 
@@ -47,7 +49,7 @@ A Python-based automation tool that simulates human-like searches on **Bing.com*
 
 - **Python Libraries** (installed automatically via `.bat` or manually via pip):
 ```bash
-pip install selenium win10toast tqdm
+pip install selenium win10toast tqdm python-dotenv
 ```
 
 ---
@@ -73,7 +75,7 @@ Extract the `msedgedriver.exe` from the ZIP file.
 ### 4. Place the WebDriver Executable
 
 * **Option A (Recommended):**
-  Put `msedgedriver.exe` in the same folder as `app.py`
+  Put `msedgedriver.exe` in the same folder as `search-tool.py`
 
 * **Option B (Advanced):**
   Add the WebDriver directory to your system PATH:
@@ -88,28 +90,84 @@ Extract the `msedgedriver.exe` from the ZIP file.
 
 ---
 
+## 🔧 Environment Configuration (.env file)
+
+### Editing the .env File
+
+**IMPORTANT:** Before running the script, you must edit the existing `.env` file in the project directory with your personal information.
+
+Open the `.env` file (already included in the project) and replace the placeholder values:
+
+**Current .env file content:**
+```env
+#Please fill in the following variables with your information
+YOUR_USERNAME=<<YOUR USERNAME>> #Your windows username
+#example: YOUR_USERNAME=JohnDoe
+TOTAL_PROFILES=<<TOTAL PROFILES>> #Your total number of profiles
+#example: TOTAL_PROFILES=5
+```
+
+**Edit it to look like this (with your actual values):**
+```env
+#Please fill in the following variables with your information
+YOUR_USERNAME=JohnDoe #Your windows username
+#example: YOUR_USERNAME=JohnDoe
+TOTAL_PROFILES=5 #Your total number of profiles
+#example: TOTAL_PROFILES=5
+```
+
+### How to Find Your Windows Username
+
+1. **Method 1:** Press `Win + R`, type `cmd`, press Enter, then type `echo %USERNAME%`
+2. **Method 2:** Open File Explorer and navigate to `C:\Users\` - your username is one of the folder names
+3. **Method 3:** Press `Win + I` → Accounts → Your info (displays your username)
+
+### Configuration Options
+
+| Variable | Description | Example | Required |
+|----------|-------------|---------|----------|
+| `YOUR_USERNAME` | Your Windows username for Edge profile path | `JohnDoe` | ✅ Yes |
+| `TOTAL_PROFILES` | Number of Edge profiles to use | `5` | ✅ Yes |
+
+### ⚠️ Important Notes
+
+- **Replace Placeholders:** Change `<<YOUR USERNAME>>` and `<<TOTAL PROFILES>>` with your actual values
+- **Case Sensitive:** Make sure the username matches exactly (including capitalization)
+- **No Quotes:** Don't wrap values in quotes unless your username actually contains quotes
+- **No Spaces:** around the `=` sign
+- **Keep Comments:** You can keep the `#` comment lines - they won't affect the script
+
+### Example Edited .env File
+
+```env
+#Please fill in the following variables with your information
+YOUR_USERNAME=AliceSmith #Your windows username
+#example: YOUR_USERNAME=JohnDoe
+TOTAL_PROFILES=8 #Your total number of profiles
+#example: TOTAL_PROFILES=5
+```
+
+---
+
 ## ⚙️ Initial Setup Before First Run
 
 ❗ **Important:** Before you run the script for the first time, make sure to:
 ⚠️ Feel free to modificated the script based on your purpose. 
 
-1. **Create Edge Profiles (Required Before First Run)**  
+1. **Edit the .env File (REQUIRED)**  
+   Follow the [Environment Configuration](#-environment-configuration-env-file) section above to edit the existing `.env` file with your Windows username and desired number of profiles.
+
+2. **Create Edge Profiles (Required Before First Run)**  
    You must first open Microsoft Edge and manually create profiles (e.g., Profile 1, Profile 2, etc.) and sign in to your Microsoft account on each. These will be the profiles used by Selenium.
 
-2. **Match Profile Count in Script**  
-   Make sure the number of profiles created matches the `total_profiles` value in the script:
-   ```python
-   total_profiles = 7
+3. **Match Profile Count in .env File**  
+   Make sure the number of profiles created matches the `TOTAL_PROFILES` value in your `.env` file:
+   ```env
+   TOTAL_PROFILES=7
    ```
    If you create fewer profiles, reduce this value to prevent errors.
 
-3. **Set Your Profile Folder Path**  
-   Update this line <YOUR_USERNAME> to match your actual Edge user data folder:
-   ```python
-   options.add_argument(r"--user-data-dir=C:\\Users\\<YOUR_USERNAME>\\AppData\\Local\\Microsoft\\Edge\\User Data\\Ryurex Project")
-   ```
-
-5. **Disable Headless Mode on First Run**  
+4. **Disable Headless Mode on First Run**  
    On your very first execution, answer:
    ```
    Do you want to inactivate headless mode (Y/N): Y
@@ -137,6 +195,35 @@ You will be asked:
 The tool will loop through each profile and perform:
 
 * 30 desktop + 20 mobile Bing searches (with iPhone X emulation for mobile)
+
+### 🎮 Skip Feature
+
+During execution, you can press **'S'** at any time to skip the current session. This will:
+- Complete the current profile mode (desktop or mobile)
+- Move to the next profile automatically
+- Display "⏭️ SKIPPED" status
+
+---
+
+## 🔍 Troubleshooting
+
+### Common Issues
+
+1. **"YOUR_USERNAME not found in .env file!"**
+   - Make sure you edited the `.env` file in the correct directory
+   - Check that `YOUR_USERNAME` is spelled correctly (case sensitive)
+
+2. **"Profile directory not found"**
+   - Verify your Windows username in the `.env` file is correct
+   - Make sure Edge profiles exist before running the script
+
+3. **WebDriver errors**
+   - Ensure your Edge WebDriver version matches your Edge browser version
+   - Make sure `msedgedriver.exe` is in the correct location
+
+4. **Placeholder values still present**
+   - Make sure you replaced `<<YOUR USERNAME>>` and `<<TOTAL PROFILES>>` with actual values
+   - Don't leave the `<<` and `>>` symbols in the file
 
 ---
 

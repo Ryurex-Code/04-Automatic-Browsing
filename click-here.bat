@@ -24,6 +24,13 @@ if errorlevel 1 (
     pip install tqdm
 )
 
+:: Check and install python-dotenv
+python -c "import dotenv" 2>NUL
+if errorlevel 1 (
+    echo Installing python-dotenv...
+    pip install python-dotenv
+)
+
 :: Run the script
 echo Launching Bing Auto Search Tool...
 python search-tool.py

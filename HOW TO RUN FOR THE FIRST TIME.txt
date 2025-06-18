@@ -5,7 +5,38 @@
 📌 This file contains step-by-step instructions to help you set up the Bing Auto Search Tool correctly BEFORE running it the first time.
 
 ----------------------------
-⚙️  1. Create Edge Profiles
+🔧 1. Edit the .env File
+----------------------------
+
+FIRST AND MOST IMPORTANT: You must edit the .env file with your personal information.
+
+📍 Open the .env file in this folder and replace the placeholder values:
+
+BEFORE (default content):
+    YOUR_USERNAME=<<YOUR USERNAME>>
+    TOTAL_PROFILES=<<TOTAL PROFILES>>
+
+AFTER (with your actual values):
+    YOUR_USERNAME=JohnDoe
+    TOTAL_PROFILES=5
+
+🔍 How to find YOUR USERNAME:
+1. Press `Windows + R`
+2. Type: `cmd` → press Enter
+3. In the terminal, type: `echo %USERNAME%`
+
+OR you can check it by opening File Explorer → go to C:\Users\ → your username is one of the folder names
+
+OR search "edge://version/" in Microsoft Edge address bar and look at the Profile Path
+
+⚠️ IMPORTANT:
+- Remove the << and >> symbols completely
+- Use your exact Windows username (case sensitive)
+- No quotes around the values
+- Set TOTAL_PROFILES to match how many Edge profiles you plan to create
+
+----------------------------
+⚙️  2. Create Edge Profiles
 ----------------------------
 
 You must open Microsoft Edge and manually create multiple profiles.
@@ -18,53 +49,37 @@ You must open Microsoft Edge and manually create multiple profiles.
 
 📝 Recommended: Create them as "Profile 1", "Profile 2", etc.
 
-These profiles will be used and controlled by Selenium WebDriver.
-
-----------------------------------------
-🧑‍💻 2. Match Profile Count in the Script
-----------------------------------------
-
-Open `search-tool.py` or `app.py`, and find this line:
-
-    total_profiles = 7
-
-Change the value based on how many profiles you've created in Edge.
+🔢 Make sure the number of profiles you create matches the TOTAL_PROFILES value in your .env file.
 
 Example:
-- If you only created 5 profiles, change it to:
+- If you set TOTAL_PROFILES=5 in .env, create exactly 5 profiles in Edge
+- If you only want to use 3 profiles, set TOTAL_PROFILES=3 in .env
 
-      total_profiles = 5
+These profiles will be used and controlled by Selenium WebDriver.
 
 ----------------------------------------------------
-📁 3. Set Your Edge Profile Folder (--user-data-dir)
+📁 3. Verify Your Edge Profile Path
 ----------------------------------------------------
 
-Locate your Edge user data folder on Windows. Here's how:
-
-🔍 How to find YOUR USERNAME:
-1. Press `Windows + R`
-2. Type: `cmd` → press Enter
-3. In the terminal, type: `echo %USERNAME%`
-
-or you can check it by Microsoft Edge with just search "edge://version/" on your search bar.
-
-Then use this in the following path:
+The script will automatically use your username from the .env file to build this path:
 
     C:\Users\<YOUR_USERNAME>\AppData\Local\Microsoft\Edge\User Data\Ryurex Project
 
-📌 In your script (`search-tool.py`), update this line:
+📌 To verify this is correct:
+1. Open Microsoft Edge
+2. Type "edge://version/" in the address bar
+3. Look at the "Profile Path" - it should contain your username
 
-    options.add_argument(r"--user-data-dir=C:\Users\<YOUR_USERNAME>\AppData\Local\Microsoft\Edge\User Data\Ryurex Project")
-
-❗ Make sure the directory and profile folders EXIST before running the tool.
+❗ Make sure the Edge profiles you created actually exist in this location.
 
 ------------------------------------------------
 🧪 4. Disable Headless Mode on First-Time Setup
 ------------------------------------------------
 
 When you run the script for the first time, make sure to disable headless mode so you can:
-- Manually sign into each Microsoft Edge profile in Edge Web Driver
-- Verify access to Bing and confirm session is saved
+- Manually sign into each Microsoft Edge profile
+- Verify access to Bing and confirm sessions are saved
+- See any potential errors or issues
 
 📍 The script will ask:
     Do you want to inactivate headless mode (Y/N):
@@ -74,13 +89,52 @@ Type: Y
 ✅ Once all profiles are configured correctly and sessions saved, you may run in headless mode next time (just press N or Enter).
 
 -------------------
+🚀 5. First Run
+-------------------
+
+Once you've completed steps 1-4:
+
+1. Run the script:
+   ```
+   python search-tool.py
+   ```
+   OR double-click `click-here.bat`
+
+2. When prompted:
+   - "Do you want to inactivate headless mode (Y/N):" → Type Y
+   - "Do you want to show detailed information (Y/N):" → Type Y (recommended for first run)
+
+3. The script will open Edge browsers for each profile
+4. Make sure each profile is properly signed in to Microsoft account
+5. Let the script complete at least one full cycle
+
+-------------------
+⚠️ Troubleshooting
+-------------------
+
+If you get errors:
+
+❌ "YOUR_USERNAME not found in .env file!"
+   → You didn't edit the .env file or left <<YOUR USERNAME>> unchanged
+
+❌ "Profile directory not found"
+   → Your username in .env doesn't match your actual Windows username
+   → Check the username is spelled correctly (case sensitive)
+
+❌ WebDriver errors
+   → Make sure Microsoft Edge WebDriver is installed and matches your Edge version
+   → Place msedgedriver.exe in the same folder as search-tool.py
+
+❌ "Profile 1 not found" etc.
+   → You didn't create enough profiles in Edge
+   → Reduce TOTAL_PROFILES in .env to match actual profiles created
+
+-------------------
 ✅ You're all set!
 -------------------
 
-Once setup is complete, you can run:
-
-    python search-tool.py
-
-Or double-click `click-here.bat`
+After successful first-time setup, future runs can use headless mode for faster, background operation.
 
 Enjoy your automated Bing searching experience!
+
+💡 Tip: Keep the .env file private and never share it, as it contains your personal system information.
