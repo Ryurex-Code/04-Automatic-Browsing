@@ -10,11 +10,11 @@ if errorlevel 1 (
     pip install selenium
 )
 
-:: Check and install win10toast
-python -c "import win10toast" 2>NUL
+:: Check and install plyer
+python -c "import plyer" 2>NUL
 if errorlevel 1 (
-    echo Installing win10toast...
-    pip install win10toast
+    echo Installing plyer...
+    pip install plyer
 )
 
 :: Check and install TQDM
@@ -29,6 +29,13 @@ python -c "import dotenv" 2>NUL
 if errorlevel 1 (
     echo Installing python-dotenv...
     pip install python-dotenv
+)
+
+:: Check and install requests
+python -c "import requests" 2>NUL
+if errorlevel 1 (
+    echo Installing requests...
+    pip install requests
 )
 
 :: Run the script

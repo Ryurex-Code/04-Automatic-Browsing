@@ -1,4 +1,4 @@
-# Bing Auto Search Tool V2.0
+# Bing Auto Search Tool V2.5
 # Developed by Muhammad Rafi (Ryurex) with Chisato Nishikigi
 # This script automates Bing searches using Selenium WebDriver with options for headless mode, mobile emulation, and random keyword generation.
 # Last updated: June 2025
@@ -12,7 +12,7 @@ from selenium.webdriver.edge.options import Options # Options for Edge WebDriver
 from selenium.webdriver.common.by import By # By class for locating elements
 from selenium.webdriver.common.keys import Keys # Keys class for keyboard actions
 from selenium.common.exceptions import WebDriverException, TimeoutException # Selenium exceptions
-from win10toast import ToastNotifier # ToastNotifier for Windows notifications
+from plyer import notification # Modern cross-platform notification library
 from tqdm import tqdm # tqdm for progress bar
 import time # Time for sleep and time calculations
 import random # Random for generating random keywords
@@ -107,20 +107,27 @@ def suppress_stderr():
         finally:
             sys.stderr = old_stderr
 
-# Safe wrapper for win10toast to catch and suppress errors
+# Safe wrapper for plyer notifications to catch and suppress errors
 class SafeToastNotifier:
     def __init__(self):
+        self.available = True
         try:
+            # Test if notifications are available
             with suppress_stderr():
-                self.notifier = ToastNotifier()
+                notification.notify(title="Test", message="", timeout=0.1)
         except Exception:
-            self.notifier = None
+            self.available = False
     
     def show_toast(self, title, message, duration=5):
         try:
-            if self.notifier:
+            if self.available:
                 with suppress_stderr():
-                    self.notifier.show_toast(title, message, duration=duration)
+                    notification.notify(
+                        title=title,
+                        message=message,
+                        timeout=duration,
+                        app_name="Bing Auto Search Tool"
+                    )
         except Exception:
             # Silently fail if toast notification fails
             pass

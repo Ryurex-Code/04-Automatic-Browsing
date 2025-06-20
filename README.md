@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/badge/Python-3.x-blue.svg)
 ![Selenium](https://img.shields.io/badge/Selenium-Automation-green.svg)
 ![tqdm](https://img.shields.io/badge/tqdm-progress--bar-ff69b4)
-![win10toast](https://img.shields.io/badge/win10toast-notifications-ffa500)
+![plyer](https://img.shields.io/badge/plyer-notifications-orange.svg)
 ![Windows](https://img.shields.io/badge/OS-Windows-0078D6.svg)
 ![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -30,7 +30,7 @@ A Python-based automation tool that simulates human-like searches on **Bing.com*
 * 🔤 **Smart Random Keyword Generator with common words + suffix**
 * ⏱️ **Progress Bar + Time Estimation**
 * 💬 **Optional Detailed Info in Progress Display**
-* 🔔 **Windows Toast Notifications per profile**
+* 🔔 **Cross-platform Toast Notifications per profile**
 * ⚙️ **Environment Variables Configuration**
 * ⏭️ **Skip Session Feature (Press 'S')**
 
@@ -49,7 +49,7 @@ A Python-based automation tool that simulates human-like searches on **Bing.com*
 
 - **Python Libraries** (installed automatically via `.bat` or manually via pip):
 ```bash
-pip install selenium win10toast tqdm python-dotenv
+pip install selenium plyer tqdm python-dotenv
 ```
 
 ---
@@ -224,6 +224,10 @@ During execution, you can press **'S'** at any time to skip the current session.
 4. **Placeholder values still present**
    - Make sure you replaced `<<YOUR USERNAME>>` and `<<TOTAL PROFILES>>` with actual values
    - Don't leave the `<<` and `>>` symbols in the file
+
+5. **Notification issues**
+   - If notifications don't appear, `plyer` will silently fail without affecting the main script
+   - This is normal behavior and the script will continue running
 
 ---
 
